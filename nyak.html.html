@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lilis Bakepastry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   
+</head>
+
+<body>
+    <div class="browser-container">
+        <div class="browser-top-bar">
+            <div class="browser-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="browser-search">lilisbakepastry.com</div>
+            <div style="width: 30px"></div>
+        </div>
+
+        <div class="hero-banner">
+            <h1 class="hero-banner-title">BAKERY & PASTRY</h1>
+        </div>
+
+        <!-- HEADER NAVIGATION -->
+        <nav>
+            <div class="brand-logo" onclick="switchPage('home')">
+                Lilis Bakepastry
+            </div>
+            <ul class="nav-links">
+                <li><a id="nav-home" class="active" onclick="switchPage('home')">Home</a></li>
+                <li><a id="nav-menu" onclick="switchPage('menu')">Menu & Price</a></li>
+                <li><a id="nav-testi" onclick="switchPage('testi')">Testimoni</a></li>
+                <li><a id="nav-gallery" onclick="switchPage('gallery')">Gallery</a></li>
+                <li><a id="nav-location" onclick="switchPage('location')">Location</a></li>
+            </ul>
+        </nav>
+
+        <!-- PAGE HOME -->
+        <section id="page-home" class="page-section active-page">
+            <div class="home-grid">
+                <div>
+                    <div class="section-tag">— LILIS BAKEPASTRY</div>
+                    <h2 class="section-title">
+                        Welcome to <br /><span class="highlight-text">Lilis Bakepastry</span>
+                        — warm bread, sweet cakes, and aromas that make you feel at home.
+                    </h2>
+                    <p class="home-text-desc">
+                        “Lilis Bakepastry comes from our love for bread and homemade cakes
+                        that are always fresh from the oven. From the beginning, we wanted
+                        to bring the warm aroma and sweet taste that make every moment
+                        more special. From soft bread to beautiful cakes, everything is
+                        made with carefully selected ingredients and full of love. Come by
+                        and feel the happiness in every bite.”
+                    </p>
+                    <div class="btn-group">
+                        <button class="btn-primary" onclick="switchPage('menu')">
+                            Explore Our Menu
+                        </button>
+                        <button class="btn-secondary" onclick="switchPage('location')">
+                            Find a Bakery
+                        </button>
+                    </div>
+                    <div class="badges">
+                        <span>✓ 100% Organic Flour</span>
+                        <span>✓ 24-Hour Fermentation</span>
+                    </div>
+                </div>
+                <div class="home-images">
+                    <img src="img/모든 게시물 • Instagram.jpg" class="img-card-main" alt="Pastry Showcase" />
+                    <div class="img-side-container">
+                        <img src="img/Cute.jpg" class="img-card-sub" alt="Cakes Showcase" />
+                        <div class="opening-box">
+                            <h4>10.00 AM</h4>
+                            <p>Start Weekdays</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE MENU -->
+        <section id="page-menu" class="page-section">
+            <div class="section-tag">— FRESH FROM THE OVEN</div>
+            <h2 class="section-title">
+                Signature creations crafted <br />with love &lt;3 !
+            </h2>
+            <p class="menu-description">
+                Every pastry and loaf is mixed, shaped, and baked daily by our passionate kitchen team.
+            </p>
+
+            <div class="horizontal-scroll-container">
+                <div class="menu-cards-wrapper">
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=400&q=80" alt="Traditional Sourdough" />
+                        <div class="menu-title-row">
+                            <h4>Traditional Sourdough</h4>
+                            <span class="menu-price">90K IDR</span>
+                        </div>
+                        <p>Our signature loaf made with 3 ingredients: organic wheat flour, water, and sea salt. Naturally fermented over 24 hours.</p>
+                        <a onclick="openSingleOrder('Traditional Sourdough', 90000)" class="order-link">Order for Pick-up &rarr;</a>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="img/Cheesecake Factory Cheesecake.jpg" alt="Cheesecake Strawberry" />
+                        <div class="menu-title-row">
+                            <h4>CheeseCake Strawberry</h4>
+                            <span class="menu-price">67K IDR</span>
+                        </div>
+                        <p>Rich cheesecake crowned with juicy strawberries. Smooth, sweet, and perfectly balanced.</p>
+                        <a onclick="openSingleOrder('CheeseCake Strawberry', 67000)" class="order-link">Order for Pick-up &rarr;</a>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="img/Italian-Tart-Pistachio-Cream-2.jpg" alt="pistachio tart" />
+                        <div class="menu-title-row">
+                            <h4>Fresh Pistachio Tart</h4>
+                            <span class="menu-price">74K IDR</span>
+                        </div>
+                        <p>Sweet shortcrust pastry filled with rich pistachio frangipane, topped with fresh cream.</p>
+                        <a onclick="openSingleOrder('Fresh Pistachio Tart', 74000)" class="order-link">Order for Pick-up &rarr;</a>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="img/donat manis.jpg" alt="donat manis" />
+                        <div class="menu-title-row">
+                            <h4>Sweet Donut Collection</h4>
+                            <span class="menu-price">12K IDR/PCS</span>
+                        </div>
+                        <p>Light and fluffy donuts crafted in a variety of indulgent flavors, finished with luscious glazes.</p>
+                        <a onclick="openSingleOrder('Sweet Donut Collection', 12000)" class="order-link">Order for Pick-up &rarr;</a>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="img/Savory Donut, Donut Labu , Donaut Kentang, Donat Labu, Donat Kentang.jpg" alt="donat asin" />
+                        <div class="menu-title-row">
+                            <h4>Savory Donut Selection</h4>
+                            <span class="menu-price">15K IDR/PCS</span>
+                        </div>
+                        <p>Soft and fluffy savory donuts filled with delicious savory fillings.</p>
+                        <a onclick="openSingleOrder('Savory Donut Selection', 15000)" class="order-link">Order for Pick-up &rarr;</a>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="img/Cutest Bento Cake Ideas You Need to Try for Your Next Celebration.jpg" alt="custom cake" />
+                        <div class="menu-title-row">
+                            <h4>Custom Cake/Bento Cake</h4>
+                            <span class="menu-price">50K IDR</span>
+                        </div>
+                        <p>Soft, moist, and fluffy custom cakes layered with delicious fillings and aesthetic frosting.</p>
+                        <a onclick="openSingleOrder('Custom Cake/Bento Cake', 50000)" class="order-link">Order for Pick-up &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANCHOR TESTIMONI & DASHBOARD ADMIN -->
+            <div id="testi-anchor" style="margin-top: 40px;">
+                
+                <!-- STATUS BAR ADMIN -->
+                <div class="admin-status-bar" id="admin-bar">
+                    <span><i class="fa-solid fa-user-shield"></i> <strong>Mode Admin / Owner Aktif:</strong> Kelola ulasan & cek rekap data pesanan masuk.</span>
+                    <button onclick="logoutAdmin()" style="background: #e74c3c; color: white; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer;">Keluar Admin</button>
+                </div>
+
+                <!-- DASHBOARD REKAP ORDERAN ADMIN -->
+                <div class="admin-dashboard-panel">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <h3 style="font-family: 'Playfair Display', serif; color: #2c3e50;"><i class="fa-solid fa-chart-line"></i> Rekapitulasi Pesanan Website</h3>
+                        <button onclick="clearAllOrders()" style="background: #ffeded; color: #d9534f; border: 1px solid #f5c6cb; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem;">
+                            <i class="fa-solid fa-trash"></i> Reset Data Pesanan
+                        </button>
+                    </div>
+
+                    <!-- FILTER TANGGAL / BULAN / TAHUN -->
+                    <div style="display: flex; gap: 12px; margin-bottom: 20px; align-items: center; flex-wrap: wrap; background: #f8f9fa; padding: 12px; border-radius: 8px;">
+                        <span style="font-weight: 600; font-size: 0.85rem;"><i class="fa-solid fa-filter"></i> Filter Waktu:</span>
+                        <input type="date" id="filter-order-date" onchange="renderAdminDashboard()" style="padding: 6px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 0.85rem;" />
+                        <button onclick="resetDateFilter()" style="padding: 6px 12px; border: 1px solid #ccc; background: #fff; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">Tampilkan Semua Hari</button>
+                    </div>
+
+                    <!-- CARD SUMMARY STATISTIK -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 20px;">
+                        <div class="summary-card">
+                            <h4>Total Transaksi</h4>
+                            <p id="stat-total-orders">0</p>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Total Pcs Terjual</h4>
+                            <p id="stat-total-pcs">0 Pcs</p>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Total Estimasi Omzet</h4>
+                            <p id="stat-total-omzet">Rp 0</p>
+                        </div>
+                    </div>
+
+                    <!-- REKAPITEM PER MENU -->
+                    <h4 style="margin-bottom: 8px; font-size: 0.95rem; color: #333;">Breakdown Pembelian Per Menu:</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 20px;" id="menu-breakdown-container">
+                        <!-- Otomatis diisi oleh JavaScript -->
+                    </div>
+
+                    <!-- RIWAYAT TRANSAKSI DETAIL -->
+                    <h4 style="margin-bottom: 8px; font-size: 0.95rem; color: #333;">Detail Riwayat Pesanan:</h4>
+                    <div style="max-height: 250px; overflow-y: auto;">
+                        <table class="table-rekap">
+                            <thead>
+                                <tr>
+                                    <th>Waktu / Tanggal</th>
+                                    <th>Pemesan</th>
+                                    <th>No WA</th>
+                                    <th>Detail Menu</th>
+                                    <th>Total (Rp)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-orders-body">
+                                <!-- Data pesanan masuk -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- TESTIMONI SECTION -->
+                <div class="section-tag">— KIND WORDS</div>
+                <h2 class="section-title">Testimoni/Review</h2>
+
+                <div class="testi-header-actions" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <div style="display: flex; gap: 12px;">
+                        <button id="btn-show-reviews" class="btn-tab-active" onclick="switchReviewTab('list')" style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-comments"></i> Review
+                        </button>
+                        <button id="btn-show-form" class="btn-tab-inactive" onclick="switchReviewTab('form')" style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-pen-to-square"></i> 📝 Your Review
+                        </button>
+                    </div>
+
+                    <button id="btn-login-admin-trigger" onclick="loginAdminPrompt()" style="background: transparent; border: none; color: #aaa; cursor: pointer; font-size: 0.85rem;">
+                        <i class="fa-solid fa-lock"></i> Admin Login
+                    </button>
+                </div>
+
+                <div id="review-form-container" style="display: none; background: #ffffff; padding: 32px; border-radius: 16px; margin-bottom: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 6px; color: #333;">Tulis Ulasan Anda</h3>
+                    <p style="color: #666; margin-bottom: 24px; font-size: 0.95rem;">Bagikan pengalaman rasa & suasana Anda saat berkunjung ke Lilis Bakepastry.</p>
+                    
+                    <form id="form-ulasan" onsubmit="addNewReview(event)">
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333;">Name: <span style="color: red;">*</span></label>
+                            <input id="input-name" type="text" placeholder="Explain: Lili" required style="width: 100%; padding: 12px 16px; border: 1px solid #e0e0e0; border-radius: 8px; outline: none; font-size: 0.95rem; background: #fafafa;" />
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333;">Pekerjaan / Status</label>
+                            <input id="input-role" type="text" placeholder="Explain: Pelajar / Mahasiswa" style="width: 100%; padding: 12px 16px; border: 1px solid #e0e0e0; border-radius: 8px; outline: none; font-size: 0.95rem; background: #fafafa;" />
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333;">Rating Bintang <span style="color: red;">*</span></label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5" name="rating" value="5" checked /><label for="star5" title="5 Bintang">★</label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 Bintang">★</label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 Bintang">★</label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 Bintang">★</label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 Bintang">★</label>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 24px;">
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333;">Pesan Ulasan <span style="color: red;">*</span></label>
+                            <textarea id="input-message" rows="4" placeholder="Tuliskan ulasan jujur Anda di sini..." required style="width: 100%; padding: 12px 16px; border: 1px solid #e0e0e0; border-radius: 8px; outline: none; font-size: 0.95rem; background: #fafafa; font-family: inherit; resize: vertical;"></textarea>
+                        </div>
+
+                        <button type="submit" style="background: #D86D51; color: white; border: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                            SEND
+                        </button>
+                    </form>
+                </div>
+
+                <div id="review-list-container">
+                    <div class="rating-summary-card" style="background: #fff; padding: 18px 24px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                        <div style="display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 600;">
+                            <span style="font-size: 1.5rem; font-weight: 700; color: #d86d51;">4.9</span> / 5.0 
+                            <span style="color: #ffc107;">★★★★★</span>
+                            <span style="color: #666; font-weight: 400; font-size: 0.95rem;">(Ulasan Pelanggan)</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <label for="filter-bintang" style="font-size: 0.9rem; color: #555;">Filter Bintang:</label>
+                            <select id="filter-bintang" onchange="renderReviews()" style="padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc; background: #fff;">
+                                <option value="all">View all stars</option>
+                                <option value="5">5</option>
+                                <option value="4">4</option>
+                                <option value="3">3</option>
+                                <option value="2">2</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="testi-grid" class="testi-grid"></div>
+
+                    <div id="wrapper-btn-testi" style="text-align: center; margin-top: 30px;">
+                        <button id="btn-toggle-all-testi" class="btn-see-all" onclick="toggleAllTestimoni()">
+                            View all
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE GALLERY -->
+        <section id="page-gallery" class="page-section">
+            <div class="section-tag">— LILIS BAKEPASTRY GALLERY</div>
+            <h2 class="section-title">Our Gallery</h2>
+
+            <div class="gallery-grid">
+                <img src="img/1.jpg" alt="Gallery 1" />
+                <img src="img/2.jpg" alt="Gallery 2" />
+                <img src="img/3.jpg" alt="Gallery 3" />
+                <img src="img/4.jpg" alt="Gallery 4" />
+
+                <img src="img/Donuts 🥯.jpg" alt="Gallery 5" class="hidden-gallery" />
+                <img src="img/_3.jpg" alt="Gallery 6" class="hidden-gallery" />
+                <img src="img/Cute.jpg" alt="Gallery 7" class="hidden-gallery" />
+                <img src="img/모든 게시물 • Instagram.jpg" alt="Gallery 8" class="hidden-gallery" />
+            </div>
+
+            <div style="text-align: center; margin-bottom: 40px">
+                <button id="btn-toggle-gallery" class="btn-primary" onclick="toggleGallery()">
+                    Full View Gallery
+                </button>
+            </div>
+
+            <div id="location-anchor" style="padding-top: 30px">
+                <div class="section-tag">— FIND US</div>
+                <h2 class="section-title">
+                    Come say hello. <br /> Warm bread awaits you.
+                </h2>
+
+                <div class="location-grid">
+                    <div>
+                        <div class="info-item">
+                            <h5>Location</h5>
+                            <p>Jl. Raya Canggu, Kuta Utara, Badung - Bali, Indonesia</p>
+                        </div>
+                        <div class="info-item">
+                            <h5>Opening Hours</h5>
+                            <p>
+                                Monday - Friday: 10.00 AM - 10.00 PM<br />Saturday - Sunday: 11.00 AM - 05.00 PM
+                            </p>
+                        </div>
+                        <div class="info-item">
+                            <h5>Contact</h5>
+                            <p>+62 812-3456-7890 (Owner)</p>
+                        </div>
+                        <button class="btn-primary" style="margin-top: 10px">
+                            Get Directions
+                        </button>
+                    </div>
+                    <div>
+                        <img src="img/location.jpg" class="location-img" alt="Store Front" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="footer-hero-banner"></div>
+
+            <div class="footer-main-content">
+                <div class="footer-top-row">
+                    <div class="footer-brand-section">
+                        <div class="footer-logo" onclick="switchPage('home')">
+                            <svg class="footer-logo-icon" width="20" height="20" viewBox="0 0 24 24" fill="#D86D51">
+                                <path d="M12 2C8.5 2 5.5 4 4 7c-1.5 3-1 6.5 1 9 1.5 2 3.5 3 5 3s2.5-.5 3.5-1.5c1 1 2 1.5 3.5 1.5 1.5 0 3.5-1 5-3 2-2.5 2.5-6 1-9-1.5-3-4.5-5-8-5zm-5 13c-1.2 0-2.2-.8-2.7-2-.3-.8-.2-1.8.3-2.6.7-1.2 2-2.1 3.4-2.4.5 1.6 1.3 3.1 2.5 4.4-1 1.7-2.3 2.6-3.5 2.6zm10 0c-1.2 0-2.5-.9-3.5-2.6 1.2-1.3 2-2.8 2.5-4.4 1.4.3 2.7 1.2 3.4 2.4.5.8.6 1.8.3 2.6-.5 1.2-1.5 2-2.7 2z" />
+                            </svg>
+                            <span class="footer-logo-text">Lilis Bakepastry</span>
+                        </div>
+                        <p class="footer-description">
+                            A sweet journey from classic favorites to contemporary indulgence, crafted fresh every day.
+                        </p>
+                    </div>
+
+                    <div class="footer-helpful-section">
+                        <h4 class="footer-helpful-title">Helpful</h4>
+                        <ul class="footer-helpful-links">
+                            <li><a href="#" onclick="switchPage('location')">Contact Us</a></li>
+                            <li><a href="#" onclick="switchPage('menu')">Pick-up FAQs</a></li>
+                            <li><a href="#" onclick="switchPage('menu')">Gift Cards</a></li>
+                            <li><a href="#" onclick="switchPage('home')">Jobs</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-nav-row">
+                    <ul class="footer-nav-links">
+                        <li><a id="footer-nav-home" class="footer-active" onclick="switchPage('home')">Home</a></li>
+                        <li><a id="footer-nav-menu" onclick="switchPage('menu')">Menu & Price</a></li>
+                        <li><a id="footer-nav-testi" onclick="switchPage('testi')">Testimoni</a></li>
+                        <li><a id="footer-nav-gallery" onclick="switchPage('gallery')">Gallery</a></li>
+                        <li><a id="footer-nav-location" onclick="switchPage('location')">Location</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <div class="footer-bottom-row">
+                    <div class="footer-copyright">© 2026 Lilis Bakepastry.</div>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- MODAL ORDER 1 MENU -->
+    <div id="single-order-modal" class="order-modal">
+        <div class="order-modal-content">
+            <span class="close-modal" onclick="closeSingleOrder()">&times;</span>
+            <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 4px; color: #333;">Order Cepat (1 Menu)</h3>
+            <p style="color: #d86d51; font-weight: 600; margin-bottom: 12px;" id="modal-menu-title">Nama Menu</p>
+            
+            <form onsubmit="submitSingleOrder(event)">
+                <input type="hidden" id="modal-menu-name" />
+                <input type="hidden" id="modal-menu-unit-price" />
+                
+                <div style="margin-bottom: 14px;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Jumlah Pcs: <span style="color:red;">*</span></label>
+                    <input type="number" id="single-qty" value="1" min="1" required oninput="calculateSingleTotal()" style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px;" />
+                </div>
+
+                <div class="price-summary-box">
+                    <span>Price:</span>
+                    <span id="single-total-price" style="color: #D86D51; font-size: 1.1rem;">Rp 0</span>
+                </div>
+
+                <div style="margin-bottom: 14px;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Nama Pemesan: <span style="color:red;">*</span></label>
+                    <input type="text" id="single-name" required placeholder="Contoh: Stefani" style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px;" />
+                </div>
+
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Nomor WA Pemesan: <span style="color:red;">*</span></label>
+                    <input type="tel" id="single-phone" required placeholder="08123456789" style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px;" />
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 10px; margin-bottom: 12px;">
+                    <i class="fa-brands fa-whatsapp"></i> Order & Kirim ke Owner
+                </button>
+
+                <div style="text-align: center; border-top: 1px solid #eee; padding-top: 10px;">
+                    <a onclick="openMultiOrderModal()" style="font-size: 0.85rem; color: #d86d51; cursor: pointer; font-weight: 600; text-decoration: underline;">
+                        Menu >=1? Klik here&rarr;
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL ORDER MULTI MENU -->
+    <div id="multi-order-modal" class="order-modal">
+        <div class="order-modal-content" style="max-width: 550px; max-height: 90vh; overflow-y: auto;">
+            <span class="close-modal" onclick="closeMultiOrderModal()">&times;</span>
+            <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 4px; color: #333;">Order Banyak Menu</h3>
+            <p style="color: #666; font-size: 0.85rem; margin-bottom: 16px;">Pilih jumlah pcs untuk setiap varian menu yang ingin dibeli.</p>
+
+            <form onsubmit="submitMultiOrder(event)">
+                <div style="margin-bottom: 12px;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Nama Pemesan: <span style="color:red;">*</span></label>
+                    <input type="text" id="multi-nama" required placeholder="Contoh: Stefani" style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px;" />
+                </div>
+
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Nomor WA Pemesan: <span style="color:red;">*</span></label>
+                    <input type="tel" id="multi-hp" required placeholder="08123456789" style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px;" />
+                </div>
+
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px;">Daftar Menu & Qty (Pcs):</label>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; background: #fafafa; padding: 8px 12px; border-radius: 6px; font-size: 0.85rem;">
+                            <span>Traditional Sourdough (Rp 90.000)</span>
+                            <input type="number" class="multi-item-qty" data-name="Traditional Sourdough" data-price="90000" min="0" value="0" oninput="calculateMultiTotal()" style="width: 60px; padding: 4px; border-radius: 4px; border: 1px solid #ccc;" />
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; background: #fafafa; padding: 8px 12px; border-radius: 6px; font-size: 0.85rem;">
+                            <span>CheeseCake Strawberry (Rp 67.000)</span>
+                            <input type="number" class="multi-item-qty" data-name="CheeseCake Strawberry" data-price="67000" min="0" value="0" oninput="calculateMultiTotal()" style="width: 60px; padding: 4px; border-radius: 4px; border: 1px solid #ccc;" />
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; background: #fafafa; padding: 8px 12px; border-radius: 6px; font-size: 0.85rem;">
+                            <span>Fresh Pistachio Tart (Rp 74.000)</span>
+                            <input type="number" class="multi-item-qty" data-name="Fresh Pistachio Tart" data-price="74000" min="0" value="0" oninput="calculateMultiTotal()" style="width: 60px; padding: 4px; border-radius: 4px; border: 1px solid #ccc;" />
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; background: #fafafa; padding: 8px 12px; border-radius: 6px; font-size: 0.85rem;">
+                            <span>Sweet Donut Collection (Rp 12.000/pcs)</span>
+                            <input type="number" class="multi-item-qty" data-name="Sweet Donut Collection" data-price="12000" min="0" value="0" oninput="calculateMultiTotal()" style="width: 60px; padding: 4px; border-radius: 4px; border: 1px solid #ccc;" />
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; background: #fafafa; padding: 8px 12px; border-radius: 6px; font-size: 0.85rem;">
+                            <span>Savory Donut Selection (Rp 15.000/pcs)</span>
+                            <input type="number" class="multi-item-qty" data-name="Savory Donut Selection" data-price="15000" min="0" value="0" oninput="calculateMultiTotal()" style="width: 60px; padding: 4px; border-radius: 4px; border: 1px solid #ccc;" />
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; background: #fafafa; padding: 8px 12px; border-radius: 6px; font-size: 0.85rem;">
+                            <span>Custom Cake / Bento Cake (Rp 50.000-1.000.000)</span>
+                            <input type="number" class="multi-item-qty" data-name="Custom Cake / Bento Cake" data-price="50000" min="0" value="0" oninput="calculateMultiTotal()" style="width: 60px; padding: 4px; border-radius: 4px; border: 1px solid #ccc;" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-summary-box">
+                    <span>Total price:</span>
+                    <span id="multi-total-price" style="color: #D86D51; font-size: 1.1rem;">Rp 0</span>
+                </div>
+
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Note:</label>
+                    <textarea id="multi-catatan" rows="2" placeholder="give extra topping, dll.." style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.85rem;"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 10px;">
+                    <i class="fa-brands fa-whatsapp"></i> Send to owner
+                </button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
