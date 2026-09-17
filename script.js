@@ -23,6 +23,15 @@ const defaultTestimonials = [
 let showAllTesti = false;
 let isAdminLoggedIn = false;
 
+// Helper Universal untuk membaca rating baik bertipe Angka maupun Teks Bintang ("★★★★★")
+function parseRatingToNumber(val) {
+    if (typeof val === 'number') return val;
+    if (!val) return 0;
+    const num = parseInt(val);
+    if (!isNaN(num)) return num;
+    return (val.match(/★/g) || []).length;
+}
+
 // 1. INSIALISASI TESTIMONI DARI LOCALSTORAGE
 function getStoredTestimonials() {
     const saved = localStorage.getItem("lilis_testimonials");
@@ -33,21 +42,28 @@ function getStoredTestimonials() {
     return JSON.parse(saved);
 }
 
-// 2. RENDER TESTIMONI (TERMASUK FILTER BINTANG 1-5)
+// 2. RENDER TESTIMONI (PERBAIKAN FILTER BINTANG 1-5)
 function renderTestimoni() {
     const grid = document.getElementById("testi-grid");
-    const filterValue = document.getElementById("filter-bintang").value;
+    const filterElement = document.getElementById("filter-bintang");
+    if (!grid || !filterElement) return;
+
+    const filterValue = filterElement.value;
     const data = getStoredTestimonials();
 
     grid.innerHTML = "";
 
-    // Saring berdasarkan filter bintang
+    // Saring data testimoni berdasarkan filter yang dipilih
     let filteredData = data.filter(item => {
         if (filterValue === "all") return true;
-        return item.rating == parseInt(filterValue);
+        
+        const itemRatingNum = parseRatingToNumber(item.rating);
+        const filterRatingNum = parseRatingToNumber(filterValue);
+        
+        return itemRatingNum === filterRatingNum;
     });
 
-    // Batasi tampilan jika tombol "Lihat Semua" belum diklik
+    // Batasi tampilan 3 item jika belum klik "View All" / "Lihat Semua"
     let displayData = showAllTesti ? filteredData : filteredData.slice(0, 3);
 
     if (displayData.length === 0) {
@@ -56,7 +72,9 @@ function renderTestimoni() {
     }
 
     displayData.forEach(item => {
-        const starsText = "★".repeat(item.rating) + "☆".repeat(5 - item.rating);
+        const numericRating = parseRatingToNumber(item.rating) || 5;
+        const starsText = "★".repeat(numericRating) + "☆".repeat(Math.max(0, 5 - numericRating));
+        
         const card = document.createElement("div");
         card.className = "card-testi";
         card.innerHTML = `
