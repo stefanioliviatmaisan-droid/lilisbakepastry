@@ -3,7 +3,6 @@
 
 <head>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lilis Bakepastry</title>
@@ -164,13 +163,13 @@
             <div id="testi-anchor" style="margin-top: 40px;">
                 
                 <!-- STATUS BAR ADMIN -->
-                <div class="admin-status-bar" id="admin-bar">
+                <div class="admin-status-bar" id="admin-bar" style="display: none;">
                     <span><i class="fa-solid fa-user-shield"></i> <strong>Mode Admin / Owner Aktif:</strong> Kelola ulasan & cek rekap data pesanan masuk.</span>
                     <button onclick="logoutAdmin()" style="background: #e74c3c; color: white; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer;">Keluar Admin</button>
                 </div>
 
                 <!-- DASHBOARD REKAP ORDERAN ADMIN -->
-                <div class="admin-dashboard-panel">
+                <div class="admin-dashboard-panel" id="admin-panel" style="display: none;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
                         <h3 style="font-family: 'Playfair Display', serif; color: #2c3e50;"><i class="fa-solid fa-chart-line"></i> Rekapitulasi Pesanan Website</h3>
                         <button onclick="clearAllOrders()" style="background: #ffeded; color: #d9534f; border: 1px solid #f5c6cb; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem;">
@@ -292,7 +291,8 @@
                         </div>
                         <div style="display: flex; align-items: center; gap: 10px;">
                             <label for="filter-bintang" style="font-size: 0.9rem; color: #555;">Star Filter:</label>
-                            <select id="filter-bintang" onchange="renderPEKERJAANs()" style="padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc; background: #fff;">
+                            <!-- DIPERBAIKI: Mengarahkan event onchange ke renderTestimoni() -->
+                            <select id="filter-bintang" onchange="renderTestimoni()" style="padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc; background: #fff;">
                                 <option value="all">View all stars</option>
                                 <option style="color: #ffc107;" value="5">★★★★★</option>
                                 <option style="color: #ffc107;" value="4">★★★★</option>
@@ -528,7 +528,7 @@
         </div>
     </div>
 
-    <!-- Script dimasukkan di paling bawah sebelum penutup body -->
+    <!-- Script dimasukkan di bagian paling bawah agar seluruh DOM siap -->
     <script src="script.js"></script>
 </body>
 
