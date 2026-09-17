@@ -757,4 +757,3 @@ function deleteReview(btnElement) {
         document.addEventListener('DOMContentLoaded', function() {
             renderReviews();
         });
-   
