@@ -2,15 +2,15 @@
 <html lang="id">
 
 <head>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lilis Bakepastry</title>
-    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -164,13 +164,13 @@
             <div id="testi-anchor" style="margin-top: 40px;">
                 
                 <!-- STATUS BAR ADMIN -->
-                <div class="admin-status-bar" id="admin-bar" style="display: none;">
+                <div class="admin-status-bar" id="admin-bar">
                     <span><i class="fa-solid fa-user-shield"></i> <strong>Mode Admin / Owner Aktif:</strong> Kelola ulasan & cek rekap data pesanan masuk.</span>
                     <button onclick="logoutAdmin()" style="background: #e74c3c; color: white; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer;">Keluar Admin</button>
                 </div>
 
                 <!-- DASHBOARD REKAP ORDERAN ADMIN -->
-                <div class="admin-dashboard-panel" id="admin-dashboard" style="display: none;">
+                <div class="admin-dashboard-panel">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
                         <h3 style="font-family: 'Playfair Display', serif; color: #2c3e50;"><i class="fa-solid fa-chart-line"></i> Rekapitulasi Pesanan Website</h3>
                         <button onclick="clearAllOrders()" style="background: #ffeded; color: #d9534f; border: 1px solid #f5c6cb; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem;">
@@ -286,13 +286,13 @@
                 <div id="review-list-container">
                     <div class="rating-summary-card" style="background: #fff; padding: 18px 24px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
                         <div style="display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 600;">
-                            <span style="font-size: 1.5rem; font-weight: 700; color: #d86d51;" id="avg-rating-text">4.9</span> / 5.0 
+                            <span style="font-size: 1.5rem; font-weight: 700; color: #d86d51;">4.9</span> / 5.0 
                             <span style="color: #ffc107;">★★★★★</span>
                             <span style="color: #666; font-weight: 400; font-size: 0.95rem;">(Customer Reviews)</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 10px;">
                             <label for="filter-bintang" style="font-size: 0.9rem; color: #555;">Star Filter:</label>
-                            <select id="filter-bintang" onchange="renderTestimoni()" style="padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc; background: #fff;">
+                            <select id="filter-bintang" onchange="renderPEKERJAANs()" style="padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc; background: #fff;">
                                 <option value="all">View all stars</option>
                                 <option style="color: #ffc107;" value="5">★★★★★</option>
                                 <option style="color: #ffc107;" value="4">★★★★</option>
@@ -307,7 +307,7 @@
 
                     <div id="wrapper-btn-testi" style="text-align: center; margin-top: 30px;">
                         <button id="btn-toggle-all-testi" class="btn-see-all" onclick="toggleAllTestimoni()">
-                            Lihat Semua Testimoni
+                            View all
                         </button>
                     </div>
                 </div>
@@ -336,11 +336,8 @@
                     Full View Gallery
                 </button>
             </div>
-        </section>
 
-        <!-- PAGE LOCATION -->
-        <section id="page-location" class="page-section">
-            <div id="location-anchor" style="padding-top: 10px">
+            <div id="location-anchor" style="padding-top: 30px">
                 <div class="section-tag">— FIND US</div>
                 <h2 class="section-title">
                     Come say hello. <br /> Warm bread awaits you.
@@ -508,7 +505,7 @@
                         </div>
 
                         <div style="display: flex; justify-content: space-between; align-items: center; background: #fafafa; padding: 8px 12px; border-radius: 6px; font-size: 0.85rem;">
-                            <span>Custom Cake / Bento Cake (Rp 50.000)</span>
+                            <span>Custom Cake / Bento Cake (Rp 50.000-1.000.000)</span>
                             <input type="number" class="multi-item-qty" data-name="Custom Cake / Bento Cake" data-price="50000" min="0" value="0" oninput="calculateMultiTotal()" style="width: 60px; padding: 4px; border-radius: 4px; border: 1px solid #ccc;" />
                         </div>
                     </div>
@@ -530,6 +527,9 @@
             </form>
         </div>
     </div>
+
+    <!-- Script dimasukkan di paling bawah sebelum penutup body -->
+    <script src="script.js"></script>
 </body>
 
 </html>
