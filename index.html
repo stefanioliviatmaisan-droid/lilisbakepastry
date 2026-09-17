@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-   
 </head>
 
 <body>
@@ -36,11 +35,12 @@
                 Lilis Bakepastry
             </div>
             <ul class="nav-links">
-                <li><a id="nav-home" class="active" onclick="switchPage('home')">Home</a></li>
-                <li><a id="nav-menu" onclick="switchPage('menu')">Menu & Price</a></li>
-                <li><a id="nav-testi" onclick="switchPage('testi')">Testimonis</a></li>
-                <li><a id="nav-gallery" onclick="switchPage('gallery')">Gallery</a></li>
-                <li><a id="nav-location" onclick="switchPage('location')">Location</a></li>
+                <a href="#" id="nav-home" onclick="switchPage('home')">Home</a>
+                <a href="#" id="nav-menu" onclick="switchPage('menu')">Menu & Price</a>
+                <a href="#" id="nav-testi" onclick="switchPage('testi')">Testimonis</a>
+                <a href="#" id="nav-gallery" onclick="switchPage('gallery')">Gallery</a>
+                <a href="#" id="nav-location" onclick="switchPage('location')">Location</a>
+                <a href="#" id="nav-admin" onclick="accessAdminPage()" style="color: #d96d53; font-weight: bold;">🔑 Admin</a>
             </ul>
         </nav>
 
@@ -164,14 +164,14 @@
             <!-- ANCHOR TESTIMONI & DASHBOARD ADMIN -->
             <div id="testi-anchor" style="margin-top: 40px;">
                 
-                <!-- STATUS BAR ADMIN -->
-                <div class="admin-status-bar" id="admin-bar">
+                <!-- STATUS BAR ADMIN (Tersembunyi secara default untuk pengunjung biasa) -->
+                <div class="admin-status-bar" id="admin-bar" style="display: none;">
                     <span><i class="fa-solid fa-user-shield"></i> <strong>Mode Admin / Owner Aktif:</strong> Kelola ulasan & cek rekap data pesanan masuk.</span>
                     <button onclick="logoutAdmin()" style="background: #e74c3c; color: white; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer;">Keluar Admin</button>
                 </div>
 
-                <!-- DASHBOARD REKAP ORDERAN ADMIN -->
-                <div class="admin-dashboard-panel">
+                <!-- DASHBOARD REKAP ORDERAN ADMIN (Tersembunyi secara default untuk pengunjung biasa) -->
+                <div class="admin-dashboard-panel" id="admin-dashboard-wrapper" style="display: none;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
                         <h3 style="font-family: 'Playfair Display', serif; color: #2c3e50;"><i class="fa-solid fa-chart-line"></i> Rekapitulasi Pesanan Website</h3>
                         <button onclick="clearAllOrders()" style="background: #ffeded; color: #d9534f; border: 1px solid #f5c6cb; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem;">
@@ -210,7 +210,7 @@
 
                     <!-- RIWAYAT TRANSAKSI DETAIL -->
                     <h4 style="margin-bottom: 8px; font-size: 0.95rem; color: #333;">Detail Riwayat Pesanan:</h4>
-                    <div style="max-height: 250px; overflow-y: auto;">
+                    <div style="max-height: 250px; overflow-y: auto; margin-bottom: 30px;">
                         <table class="table-rekap">
                             <thead>
                                 <tr>
@@ -225,6 +225,29 @@
                                 <!-- Data pesanan masuk -->
                             </tbody>
                         </table>
+                    </div>
+
+                    <!-- FITUR AUDIT LOG ADMIN -->
+                    <div style="background: #fff; border: 1px solid #e0e0e0; padding: 16px; border-radius: 8px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <h4 style="font-size: 0.95rem; color: #2c3e50;"><i class="fa-solid fa-shield-halved"></i> Audit Log (Catatan Aktivitas Admin)</h4>
+                            <button onclick="clearAuditLogs()" style="background: #ffeded; color: #d9534f; border: 1px solid #f5c6cb; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.75rem;">
+                                <i class="fa-solid fa-trash"></i> Bersihkan Log
+                            </button>
+                        </div>
+                        <div style="max-height: 180px; overflow-y: auto;">
+                            <table class="table-rekap" style="font-size: 0.85rem;">
+                                <thead>
+                                    <tr>
+                                        <th>Waktu Aktivitas</th>
+                                        <th>Aksi / Keterangan</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-audit-logs-body">
+                                    <!-- Log aktivitas admin -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
@@ -259,7 +282,7 @@
 
                         <div style="margin-bottom: 20px;">
                             <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333;">Occupation / Status</label>
-                            <input id="input-role" type="text" placeholder="Explain: Student / Unversity Student" style="width: 100%; padding: 12px 16px; border: 1px solid #e0e0e0; border-radius: 8px; outline: none; font-size: 0.95rem; background: #fafafa;" />
+                            <input id="input-role" type="text" placeholder="Explain: Student / University Student" style="width: 100%; padding: 12px 16px; border: 1px solid #e0e0e0; border-radius: 8px; outline: none; font-size: 0.95rem; background: #fafafa;" />
                         </div>
 
                         <div style="margin-bottom: 20px;">
@@ -285,17 +308,22 @@
                 </div>
 
                 <div id="review-list-container">
-                    <div class="rating-summary-card" style="background: #fff; padding: 18px 24px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-                        <div style="display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 600;">
-                            <span style="font-size: 1.5rem; font-weight: 700; color: #d86d51;">4.9</span> / 5.0 
-                            <span style="color: #ffc107;">★★★★★</span>
-                            <span style="color: #666; font-weight: 400; font-size: 0.95rem;">(Customer Reviews)</span>
+                    <!-- KARTU RINGKASAN RATING & FILTER -->
+                    <div class="rating-summary-card" style="display: flex; justify-content: space-between; align-items: center; width: 100%; background: #fff; padding: 16px 24px; border-radius: 12px; box-sizing: border-box;">
+                        <!-- Sisi Kiri: Nilai Rating & Bintang -->
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span id="avg-rating-value" style="font-size: 1.8rem; font-weight: bold; color: #d96d53;">0.0</span>
+                            <span style="font-size: 1.2rem; color: #555;">/ 5.0</span>
+                            <span id="avg-rating-stars" style="color: #ffc107; font-size: 1.2rem; margin-left: 5px;">★★★★★</span>
+                            <span id="total-reviews-count" style="color: #666; font-size: 0.9rem; margin-left: 5px;">(0 Customer Reviews)</span>
                         </div>
+
+                        <!-- Sisi Kanan: Star Filter -->
                         <div style="display: flex; align-items: center; gap: 10px;">
                             <label for="filter-bintang" style="font-size: 0.9rem; color: #555;">Star Filter:</label>
-                            <select id="filter-bintang" onchange="renderPEKERJAANs()" style="padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc; background: #fff;">
+                            <select id="filter-bintang" onchange="renderReviews()" style="padding: 6px 12px; border-radius: 8px; border: 1px solid #ccc; background: #fff; cursor: pointer;">
                                 <option value="all">View all stars</option>
-                                <option style="color: #ffc107;" value="5" >★★★★★</option>
+                                <option style="color: #ffc107;" value="5">★★★★★</option>
                                 <option style="color: #ffc107;" value="4">★★★★</option>
                                 <option style="color: #ffc107;" value="3">★★★</option>
                                 <option style="color: #ffc107;" value="2">★★</option>
@@ -360,7 +388,7 @@
                             <h5>Contact</h5>
                             <p>+62 812-3456-7890 (Owner)</p>
                         </div>
-                        <button class="btn-primary" style="margin-top: 10px">
+                        <button class="btn-primary" style="margin-top: 10px" onclick="window.open('https://maps.google.com/?q=Canggu', '_blank')">
                             Get Directions
                         </button>
                     </div>
@@ -399,8 +427,6 @@
                         </ul>
                     </div>
                 </div>
-
-               
 
                 <div class="footer-divider"></div>
 
@@ -444,7 +470,7 @@
 
                 <div style="margin-bottom: 16px;">
                     <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Nomor WA Pemesan: <span style="color:red;">*</span></label>
-                    <input type="tel" id="single-phone" required placeholder="08123456789" style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px;" />
+                    <input type="text" id="single-phone" required placeholder="08123456789" oninput="this.value = this.value.replace(/[^0-9]/g, '');" style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px;" />
                 </div>
 
                 <button type="submit" class="btn-primary" style="width: 100%; padding: 10px; margin-bottom: 12px;">
@@ -475,7 +501,7 @@
 
                 <div style="margin-bottom: 16px;">
                     <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Nomor WA Pemesan: <span style="color:red;">*</span></label>
-                    <input type="tel" id="multi-hp" required placeholder="08123456789" style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px;" />
+                    <input type="text" id="multi-phone" required placeholder="08123456789" oninput="this.value = this.value.replace(/[^0-9]/g, '');" style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px;" />
                 </div>
 
                 <div style="margin-bottom: 16px;">
@@ -508,29 +534,23 @@
                         </div>
 
                         <div style="display: flex; justify-content: space-between; align-items: center; background: #fafafa; padding: 8px 12px; border-radius: 6px; font-size: 0.85rem;">
-                            <span>Custom Cake / Bento Cake (Rp 50.000-1.000.000)</span>
-                            <input type="number" class="multi-item-qty" data-name="Custom Cake / Bento Cake" data-price="50000" min="0" value="0" oninput="calculateMultiTotal()" style="width: 60px; padding: 4px; border-radius: 4px; border: 1px solid #ccc;" />
+                            <span>Custom Cake/Bento Cake (Rp 50.000)</span>
+                            <input type="number" class="multi-item-qty" data-name="Custom Cake/Bento Cake" data-price="50000" min="0" value="0" oninput="calculateMultiTotal()" style="width: 60px; padding: 4px; border-radius: 4px; border: 1px solid #ccc;" />
                         </div>
                     </div>
                 </div>
 
                 <div class="price-summary-box">
-                    <span>Total price:</span>
+                    <span>Total Keseluruhan:</span>
                     <span id="multi-total-price" style="color: #D86D51; font-size: 1.1rem;">Rp 0</span>
                 </div>
 
-                <div style="margin-bottom: 16px;">
-                    <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Note:</label>
-                    <textarea id="multi-catatan" rows="2" placeholder="give extra topping, dll.." style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.85rem;"></textarea>
-                </div>
-
                 <button type="submit" class="btn-primary" style="width: 100%; padding: 10px;">
-                    <i class="fa-brands fa-whatsapp"></i> Send to owner
+                    <i class="fa-brands fa-whatsapp"></i> Order Semua & Kirim ke Owner
                 </button>
             </form>
         </div>
     </div>
 
 </body>
-
 </html>
